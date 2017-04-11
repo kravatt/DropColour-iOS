@@ -10,7 +10,7 @@ protocol TrackerProtocol {
     var gaiDictionaryFactory: GAIDictionaryCreating { get set }
     func trackScreenWithName(screenName name: String)
     func trackGameStartEvent()
-    func trackGameEndEvent(score score: Int)
+    func trackGameEndEvent(score: Int)
     func trackGameScoredEvent(scoredValue value: Int)
 
 }
@@ -27,14 +27,14 @@ class Tracker: TrackerProtocol {
 
     func trackScreenWithName(screenName name: String) {
         gaiTracker.set(kGAIScreenName, value: name)
-        gaiTracker.send(GAIDictionaryBuilder.createScreenView().build() as [NSObject: AnyObject])
+        gaiTracker.send(GAIDictionaryBuilder.createScreenView().build() as [AnyHashable: Any])
     }
 
     func trackGameStartEvent() {
         gaiTracker.send(gaiDictionaryFactory.createEventWithCategory("event", action: "dropcolour.event.game-start", value: nil))
     }
 
-    func trackGameEndEvent(score score: Int) {
+    func trackGameEndEvent(score: Int) {
         gaiTracker.send(gaiDictionaryFactory.createEventWithCategory("event", action: "dropcolour.event.game-end", value: score))
     }
 

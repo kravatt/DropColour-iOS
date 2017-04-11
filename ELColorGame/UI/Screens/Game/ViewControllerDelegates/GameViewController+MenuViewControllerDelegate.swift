@@ -16,7 +16,7 @@ extension GameViewController: MenuViewControllerDelegate {
     }
 
     func menuViewControllerDidTapQuit(menuViewController: MenuViewController) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 
 }

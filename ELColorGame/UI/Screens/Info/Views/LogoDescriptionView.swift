@@ -8,7 +8,7 @@ import UIKit
 class LogoDescriptionView: UIView {
 
     init() {
-        super.init(frame: CGRectZero)
+        super.init(frame: CGRect.zero)
         addSubviews()
         setupLayout()
     }
@@ -20,18 +20,18 @@ class LogoDescriptionView: UIView {
     // MARK: Subviews
 
     private let logoImageView: UIImageView = {
-        let view = UIImageView(frame: CGRectZero)
+        let view = UIImageView(frame: CGRect.zero)
         view.image = UIImage(asset: .Elpassion)
-        view.contentMode = UIViewContentMode.ScaleAspectFit
+        view.contentMode = UIViewContentMode.scaleAspectFit
         return view
     }()
 
     private let descriptionLabel: UILabel = {
-        let label = UILabel(frame: CGRectZero)
+        let label = UILabel(frame: CGRect.zero)
         label.text = infoDescription.localized
         label.numberOfLines = 0
-        label.textAlignment = .Center
-        label.font = UIFont.systemFontOfSize(11)
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 11)
         label.textColor = UIColor(color: .White)
         return label
     }()
@@ -44,12 +44,12 @@ class LogoDescriptionView: UIView {
     // MARK: Layout
 
     private func setupLayout() {
-        logoImageView.snp_makeConstraints { (make) -> Void in
+        logoImageView.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(0)
             make.centerX.equalTo(0)
         }
-        descriptionLabel.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(logoImageView.snp_bottom).offset(25)
+        descriptionLabel.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(logoImageView.snp.bottom).offset(25)
             make.left.equalTo(25)
             make.right.equalTo(-25)
             make.bottom.equalTo(0)

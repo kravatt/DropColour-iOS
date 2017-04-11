@@ -15,9 +15,9 @@ class FakeAuthorProvider: AuthorProviding {
                 name: "John",
                 surname: "Apple",
                 type: .Developer,
-                avatarUrl: NSURL(string: "https://google.pl/avatar"),
-                professionUrl: NSURL(string: "https://github.com/johnapple"),
-                twitterUrl: NSURL(string: "https://twitter.com/johnapple")
+                avatarUrl: URL(string: "https://google.pl/avatar"),
+                professionUrl: URL(string: "https://github.com/johnapple"),
+                twitterUrl: URL(string: "https://twitter.com/johnapple")
             )
     ]
 

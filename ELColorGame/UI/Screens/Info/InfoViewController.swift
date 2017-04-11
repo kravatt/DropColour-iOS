@@ -22,8 +22,8 @@ class InfoViewController: UIViewController, InfoViewDelegate {
         authorProvider = AuthorProvider()
         urlOpener = UrlOpener()
         super.init(nibName: nil, bundle: nil)
-        modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
-        modalPresentationStyle = UIModalPresentationStyle.Custom
+        modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        modalPresentationStyle = UIModalPresentationStyle.custom
         viewControllerPresenter.viewController = self
     }
 
@@ -35,7 +35,7 @@ class InfoViewController: UIViewController, InfoViewDelegate {
         view = InfoView(delegate: self, authors: authorProvider.authors)
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tracker.trackScreenWithName(screenName: "InfoViewController")
     }

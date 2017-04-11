@@ -21,7 +21,7 @@ class InfoView: UIView {
     init(delegate: InfoViewDelegate?, authors: [Author]) {
         self.delegate = delegate
         self.authorViews = authors.map { AuthorView(author: $0) }
-        super.init(frame: CGRectZero)
+        super.init(frame: CGRect.zero)
         addSubviews()
         setupLayout()
         configureButtonActions()
@@ -40,21 +40,21 @@ class InfoView: UIView {
     // MARK: Subviews
 
     private let scrollView: UIScrollView = {
-        let view = UIScrollView(frame: CGRectZero)
+        let view = UIScrollView(frame: CGRect.zero)
         view.contentInset = UIEdgeInsetsMake(80.0, 0.0, 20.0, 0.0)
         return view
     }()
 
     private let closeButtonBlur: UIView = {
-        let view = UIView(frame: CGRectZero)
+        let view = UIView(frame: CGRect.zero)
         view.clipsToBounds = true
-        let blur = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Dark))
+        let blur = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.dark))
         view.addSubview(blur)
-        blur.snp_makeConstraints { $0.edges.equalTo(0) }
+        blur.snp.makeConstraints { $0.edges.equalTo(0) }
         return view
     }()
 
-    private let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Dark))
+    private let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.dark))
     private let closeButton = Button(image: UIImage(asset: .Close))
     private let logoDescriptionView = LogoDescriptionView()
     private let lineViewAuthors = LineViewAuthors()
@@ -74,40 +74,40 @@ class InfoView: UIView {
     // MARK: Layout
 
     private func setupLayout() {
-        blurEffectView.snp_makeConstraints { (make) -> Void in
+        blurEffectView.snp.makeConstraints { (make) -> Void in
             make.edges.equalTo(0)
         }
-        scrollView.snp_makeConstraints { (make) -> Void in
+        scrollView.snp.makeConstraints { (make) -> Void in
             make.edges.equalTo(0)
         }
-        logoDescriptionView.snp_makeConstraints { (make) -> Void in
+        logoDescriptionView.snp.makeConstraints { (make) -> Void in
             make.top.left.right.centerX.equalTo(0)
         }
-        lineViewAuthors.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(logoDescriptionView.snp_bottom).offset(30)
+        lineViewAuthors.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(logoDescriptionView.snp.bottom).offset(30)
             make.left.right.equalTo(0)
         }
-        for (idx, authorView) in authorViews.enumerate() {
-            authorView.snp_makeConstraints {
+        for (idx, authorView) in authorViews.enumerated() {
+            authorView.snp.makeConstraints {
                 $0.left.right.equalTo(0)
                 if authorView == authorViews.first {
-                    $0.top.equalTo(lineViewAuthors.snp_bottom).offset(20)
+                    $0.top.equalTo(lineViewAuthors.snp.bottom).offset(20)
                 } else {
                     let previous = authorViews[idx - 1]
-                    $0.top.equalTo(previous.snp_bottom).offset(20)
+                    $0.top.equalTo(previous.snp.bottom).offset(20)
                 }
                 if authorView == authorViews.last {
                     $0.bottom.equalTo(0)
                 }
             }
         }
-        closeButton.snp_makeConstraints { (make) -> Void in
+        closeButton.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(30)
             make.right.equalTo(-15)
         }
-        closeButtonBlur.snp_makeConstraints { (make) -> Void in
-            make.center.equalTo(closeButton.snp_center)
-            make.size.equalTo(closeButton.snp_size)
+        closeButtonBlur.snp.makeConstraints { (make) -> Void in
+            make.center.equalTo(closeButton.snp.center)
+            make.size.equalTo(closeButton.snp.size)
         }
     }
 

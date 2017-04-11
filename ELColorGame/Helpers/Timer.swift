@@ -10,19 +10,19 @@ class Timer: NSObject {
     typealias Action = () -> ()
     let action: Action
 
-    var interval: NSTimeInterval? {
+    var interval: TimeInterval? {
         didSet {
             if let interval = interval {
-                updateTimeInterval(interval)
+                updateTimeInterval(timeInterval: interval)
             }
         }
     }
 
-    init(interval: NSTimeInterval, action: Action) {
+    init(interval: TimeInterval, action: Action) {
         self.action = action
         self.interval = interval
         super.init()
-        timer = NSTimer.scheduledTimerWithTimeInterval(interval, target: self, selector: #selector(Timer.timerTick), userInfo: nil, repeats: true)
+        timer = Foundation.Timer.scheduledTimer(timeInterval: interval, target: self, selector: #selector(Timer.timerTick), userInfo: nil, repeats: true)
     }
 
     deinit {
@@ -34,15 +34,15 @@ class Timer: NSObject {
         timer = nil
     }
 
-    private var timer: NSTimer?
+    private var timer: Foundation.Timer?
 
     func timerTick() {
         action()
     }
 
-    private func updateTimeInterval(timeInterval: NSTimeInterval) {
+    private func updateTimeInterval(timeInterval: TimeInterval) {
         guard let timer = timer else { return }
-        timer.fireDate = timer.fireDate.dateByAddingTimeInterval(timeInterval)
+        timer.fireDate = timer.fireDate.addingTimeInterval(timeInterval)
     }
 
 }

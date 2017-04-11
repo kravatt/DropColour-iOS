@@ -13,7 +13,7 @@ class StartView: UIView {
 
     init(delegate: StartViewDelegate?) {
         self.delegate = delegate
-        super.init(frame: CGRectZero)
+        super.init(frame: CGRect.zero)
         loadSubviews()
         setupLayout()
         configureButtonActions()
@@ -27,7 +27,7 @@ class StartView: UIView {
 
     private func loadSubviews() {
         addSubview(backgroundView)
-        addGradientForView(backgroundView)
+        addGradientForView(view: backgroundView)
         addSubview(backgroundImageView)
         addSubview(logoImageView)
         addSubview(newGameButton)
@@ -36,22 +36,22 @@ class StartView: UIView {
     }
 
     private let backgroundView: UIView = {
-        let backgroundView = UIView(frame: CGRectZero)
+        let backgroundView = UIView(frame: CGRect.zero)
         backgroundView.backgroundColor = UIColor(color: .Gray202B39)
         return backgroundView
     }()
 
     private let backgroundImageView: UIImageView = {
-        let view = UIImageView(frame: CGRectZero)
+        let view = UIImageView(frame: CGRect.zero)
         view.image = UIImage(asset: .CircleBackground)
-        view.contentMode = .ScaleAspectFill
+        view.contentMode = .scaleAspectFill
         return view
     }()
 
     private let logoImageView: UIImageView = {
-        let view = UIImageView(frame: CGRectZero)
+        let view = UIImageView(frame: CGRect.zero)
         view.image = UIImage(asset: .DropColourLogo)
-        view.contentMode = .ScaleAspectFit
+        view.contentMode = .scaleAspectFit
         return view
     }()
 
@@ -62,32 +62,32 @@ class StartView: UIView {
     // MARK: Layout
 
     private func setupLayout() {
-        backgroundView.snp_makeConstraints { (make) -> Void in
+        backgroundView.snp.makeConstraints { (make) -> Void in
             make.edges.equalTo(0)
         }
 
-        backgroundImageView.snp_makeConstraints { (make) -> Void in
+        backgroundImageView.snp.makeConstraints { (make) -> Void in
             make.edges.equalTo(0)
         }
 
-        logoImageView.snp_makeConstraints { (make) -> Void in
+        logoImageView.snp.makeConstraints { (make) -> Void in
             make.centerY.equalTo(0).offset(-80)
             make.centerX.equalTo(0)
         }
 
-        newGameButton.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(logoImageView.snp_bottom).offset(50)
+        newGameButton.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(logoImageView.snp.bottom).offset(50)
             make.width.equalTo(200)
             make.height.equalTo(50)
             make.centerX.equalTo(0)
         }
-        rankingButton.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(newGameButton.snp_bottom).offset(15)
+        rankingButton.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(newGameButton.snp.bottom).offset(15)
             make.width.equalTo(200)
             make.height.equalTo(50)
             make.centerX.equalTo(0)
         }
-        infoButton.snp_makeConstraints { (make) -> Void in
+        infoButton.snp.makeConstraints { (make) -> Void in
             make.right.equalTo(-15)
             make.bottom.equalTo(-20)
         }
@@ -95,26 +95,26 @@ class StartView: UIView {
 
     private func addGradientForView(view: UIView) {
         let gradient: CAGradientLayer = CAGradientLayer()
-        gradient.frame = UIScreen.mainScreen().bounds
-        let topColor = UIColor(color: .PurpleC86DD7).CGColor
-        let bottomColor = UIColor(color: .Blue3023AE).CGColor
-        guard let topColorWithAlpha = CGColorCreateCopyWithAlpha(topColor, 0.2) else { return }
-        guard let bottomColorWithAlpha = CGColorCreateCopyWithAlpha(bottomColor, 0.2) else { return }
+        gradient.frame = UIScreen.main.bounds
+        let topColor = UIColor(color: .PurpleC86DD7).cgColor
+        let bottomColor = UIColor(color: .Blue3023AE).cgColor
+        guard let topColorWithAlpha = topColor.copy(alpha: 0.2) else { return }
+        guard let bottomColorWithAlpha = bottomColor.copy(alpha: 0.2) else { return }
         gradient.colors = [topColorWithAlpha, bottomColorWithAlpha]
-        view.layer.insertSublayer(gradient, atIndex: 0)
+        view.layer.insertSublayer(gradient, at: 0)
     }
 
     // MARK: Button actions
 
     private func configureButtonActions() {
         newGameButton.buttonActionClosure = { [unowned self] in
-            self.delegate?.startViewDidTapNewGame(self)
+            self.delegate?.startViewDidTapNewGame(startView: self)
         }
         rankingButton.buttonActionClosure = { [unowned self] in
-            self.delegate?.startViewDidTapRanking(self)
+            self.delegate?.startViewDidTapRanking(startView: self)
         }
         infoButton.buttonActionClosure = { [unowned self] in
-            self.delegate?.startViewDidTapInfo(self)
+            self.delegate?.startViewDidTapInfo(startView: self)
         }
     }
 

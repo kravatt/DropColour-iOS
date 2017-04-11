@@ -89,7 +89,7 @@ class Game {
 
     private var insertingTimer: Timer?
 
-    var timeInterval: NSTimeInterval {
+    var timeInterval: TimeInterval {
         return difficultyLevel.intervalTime()
     }
 

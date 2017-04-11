@@ -11,21 +11,21 @@ class Button: UIButton {
     var buttonActionClosure: ButtonActionClosure?
 
     init(title: String, color: UIColor) {
-        super.init(frame: CGRectZero)
+        super.init(frame: CGRect.zero)
 
-        setTitle(title, forState: UIControlState.Normal)
+        setTitle(title, for: UIControlState())
         titleLabel?.font = UIFont(name: BebasNeueBold, size: 22)
-        setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        setTitleColor(UIColor.white, for: UIControlState())
         layer.cornerRadius = 25.0
         backgroundColor = color
-        setBackgroundColor(UIColor.blackColor().colorWithAlphaComponent(0.25), forUIControlState: .Highlighted)
+        setBackgroundColor(UIColor.black.withAlphaComponent(0.25), forUIControlState: .highlighted)
         configureButtonAction()
     }
 
     init(image: UIImage?) {
-        super.init(frame: CGRectZero)
+        super.init(frame: CGRect.zero)
 
-        setImage(image, forState: .Normal)
+        setImage(image, for: UIControlState())
         configureButtonAction()
     }
 
@@ -44,7 +44,7 @@ class Button: UIButton {
     }
 
     private func configureButtonAction() {
-        addTarget(self, action: #selector(Button.didTapOnButton(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        addTarget(self, action: #selector(Button.didTapOnButton(_:)), for: UIControlEvents.touchUpInside)
     }
 
     func didTapOnButton(sender: UIButton) {

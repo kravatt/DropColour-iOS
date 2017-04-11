@@ -13,8 +13,8 @@ class GameBoardSlotView: UIView {
     init(column: Int, row: Int) {
         self.column = column
         self.row = row
-        super.init(frame: CGRectZero)
-        userInteractionEnabled = false
+        super.init(frame: CGRect.zero)
+        isUserInteractionEnabled = false
         loadSubviews()
     }
 
@@ -36,7 +36,7 @@ class GameBoardSlotView: UIView {
     }
 
     private let backgroundView: UIView = {
-        let view = UIView(frame: CGRectZero)
+        let view = UIView(frame: CGRect.zero)
         view.backgroundColor = UIColor(color: .DarkPurple3D3B5E)
         return view
     }()
@@ -44,16 +44,16 @@ class GameBoardSlotView: UIView {
     var circleView: CircleView? {
         didSet {
             if let oldValue = oldValue {
-                removeCircleViewWithAnimation(oldValue)
+                removeCircleViewWithAnimation(circleView: oldValue)
             }
             if let circleView = circleView {
-                addCircleViewWithAnimation(circleView)
+                addCircleViewWithAnimation(circleView: circleView)
             }
         }
     }
 
     private func addCircleViewWithAnimation(circleView: CircleView) {
-        circleView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        circleView.autoresizingMask = [.flexibleWidth, .FlexibleHeight]
         circleView.frame = bounds
         circleView.addAppearAnimation()
         addSubview(circleView)

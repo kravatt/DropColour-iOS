@@ -1,75 +1,75 @@
 PODS:
-  - Bolts (1.7.0):
-    - Bolts/AppLinks (= 1.7.0)
-    - Bolts/Tasks (= 1.7.0)
-  - Bolts/AppLinks (1.7.0):
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
-  - Bolts/Tasks (1.7.0)
-  - Crashlytics (3.7.0):
+  - Bolts/Tasks (1.8.4)
+  - Crashlytics (3.8.4):
     - Fabric (~> 1.6.3)
-  - Fabric (1.6.7)
-  - FBSDKCoreKit (4.10.1):
-    - Bolts (~> 1.5)
-  - GA-SDK-IOS (2.2.0)
-  - Google/Analytics (2.0.3):
+  - Fabric (1.6.11)
+  - FBSDKCoreKit (4.21.0):
+    - Bolts (~> 1.7)
+  - FirebaseAnalytics (3.7.0):
+    - FirebaseCore (~> 3.5)
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseCore (3.5.2):
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseInstanceID (1.0.9)
+  - GA-SDK-IOS (2.2.11)
+  - Google/Analytics (3.0.3):
     - Google/Core
     - GoogleAnalytics (~> 3.12)
-  - Google/Core (2.0.3):
-    - GoogleInterchangeUtilities (~> 1.0)
-    - GoogleNetworkingUtilities (~> 1.0)
-    - GoogleSymbolUtilities (~> 1.0)
-    - GoogleUtilities (~> 1.1)
-  - GoogleAnalytics (3.14.0)
-  - GoogleInterchangeUtilities (1.2.0):
-    - GoogleSymbolUtilities (~> 1.0)
-  - GoogleNetworkingUtilities (1.2.0):
-    - GoogleSymbolUtilities (~> 1.0)
-  - GoogleSymbolUtilities (1.1.0)
-  - GoogleUtilities (1.2.0):
-    - GoogleSymbolUtilities (~> 1.0)
-  - Nimble (4.0.1)
-  - Quick (0.9.2)
-  - SnapKit (0.20.0)
+  - Google/Core (3.0.3):
+    - FirebaseAnalytics (~> 3.2)
+  - GoogleAnalytics (3.17.0)
+  - GoogleToolboxForMac/Defines (2.1.1)
+  - GoogleToolboxForMac/NSData+zlib (2.1.1):
+    - GoogleToolboxForMac/Defines (= 2.1.1)
+  - Nimble (6.1.0)
+  - Quick (1.1.0)
+  - SnapKit (3.0.2)
   - Spring (1.0.3)
 
 DEPENDENCIES:
   - Crashlytics (~> 3.6)
   - Fabric (~> 1.6)
-  - FBSDKCoreKit (~> 4.10)
-  - GA-SDK-IOS (~> 2.1)
+  - FBSDKCoreKit (~> 4.21.0)
+  - GA-SDK-IOS
   - Google/Analytics
-  - Nimble (~> 4.0)
-  - Quick (~> 0.9)
-  - SnapKit (~> 0.19)
-  - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
+  - Nimble
+  - Quick
+  - SnapKit (~> 3.0.0)
+  - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
 
 EXTERNAL SOURCES:
   Spring:
-    :branch: swift2
+    :branch: swift3
     :git: https://github.com/MengTo/Spring.git
 
 CHECKOUT OPTIONS:
   Spring:
-    :commit: 18d5c7b74489de8044e34767f856d1e574f0820e
+    :commit: 8201b5c93bd7ebdf4cd18160bcde1e6e88c2be64
     :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
-  Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
-  Crashlytics: c3a2333dea9e2733d2777f730910321fc9e25c0d
-  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
-  FBSDKCoreKit: d2aaed5e9ab7d8d6301c533376a1fbff1cf3deb5
-  GA-SDK-IOS: 1e8947d3b18171b92a7c7cefb4c39d3260a89ea2
-  Google: 61379f0072bc561a7e174d23a6cbe41bd6d8599c
-  GoogleAnalytics: 9be1afdb8deeac4bb5f13ca7f7d3b9db2a1f43dc
-  GoogleInterchangeUtilities: 427382e42d8a340038bec37c6fdfd316e14b5fa2
-  GoogleNetworkingUtilities: ec1e9911aca811eb18b7144394fee6168b607785
-  GoogleSymbolUtilities: eb3965ea12710569c7b80db198a39e39b18613f7
-  GoogleUtilities: 85f8ad6b251544286a97163133d042ec95f889c5
-  Nimble: 0f3c8b8b084cda391209c3c5efbb48bedeeb920a
-  Quick: 18d057bc66451eedd5d1c8dc99ba2a5db6e60226
-  SnapKit: 5fce3c1bbbf1fbd31de9aa92f33eb9fa03f15650
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
+  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
+  FBSDKCoreKit: 8a372ab194b5c7c26355c1920ef52dbeb44bc222
+  FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
+  FirebaseCore: a024587e43778508700af8c6b1209f7c4516ba02
+  FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
+  GA-SDK-IOS: 5bf2b6db1a6d2443dd8d826bc352352e601f0b43
+  Google: 813c467362eabc11385f5a5cc9ad0cb651a58f4e
+  GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
+  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  Nimble: c53e6903fee94041b90ded74f135820437d8bf59
+  Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
+  SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
 
-PODFILE CHECKSUM: e6d88a1a21f6467ab222f1ffff39f6ab91c519f1
+PODFILE CHECKSUM: 9b8e326a9ab627e2ba53b533723b520252403cfc
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.2.0

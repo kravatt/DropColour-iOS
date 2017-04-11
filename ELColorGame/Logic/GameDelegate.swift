@@ -12,6 +12,6 @@ protocol GameDelegate: class {
     func game(game: Game, didRemoveCircle circle: Circle, fromSlot slot: Slot)
     func gameOver(game: Game)
     func gameDidPause()
-    func gameDidUpdateScore(from from: Int, to: Int)
+    func gameDidUpdateScore(from: Int, to: Int)
 
 }

@@ -14,7 +14,7 @@ extension UIView {
         }
         guard currentSuperview != newSuperview else { return }
         removeFromSuperview()
-        center = currentSuperview.convertPoint(center, toView: newSuperview)
+        center = currentSuperview.convert(center, to: newSuperview)
         newSuperview.addSubview(self)
     }
 

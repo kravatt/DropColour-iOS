@@ -10,7 +10,7 @@ extension GameViewController: GameOverViewControllerDelegate {
     }
 
     func gameOverViewControllerDidTapQuit(gameOverViewController: GameOverViewController) {
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 
 }

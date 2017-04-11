@@ -8,7 +8,7 @@ import UIKit
 extension InfoViewController {
 
     func presentAlertControllerWithAuthor(author: Author) {
-        let alertController = alertControllerFactory.createAlertControllerWithTitle("\(author.fullName) \(showProfile.localized)", message: nil, preferredStyle: .ActionSheet)
+        let alertController = alertControllerFactory.createAlertControllerWithTitle("\(author.fullName) \(showProfile.localized)", message: nil, preferredStyle: .actionSheet)
         configureProfessionActionIfNeeded(author, alertController: alertController)
         configureTwitterActionIfNeeded(author, alertController: alertController)
         configureCancelActionIfNeeded(author, alertController: alertController)
@@ -16,7 +16,7 @@ extension InfoViewController {
     }
 
     func openCompanyWebsite() {
-        let companyUrl = NSURL(string: "https://www.elpassion.com")
+        let companyUrl = URL(string: "https://www.elpassion.com")
         guard let url = companyUrl else { return }
         urlOpener.openURL(url)
     }
@@ -52,14 +52,14 @@ extension InfoViewController {
 
     // MARK: Alert Actions
 
-    private func openUrlAlertActionWithTitle(title: String, url: NSURL) -> UIAlertAction {
-        return self.alertActionFactory.createActionWithTitle(title, style: .Default) { [weak self] (action) -> () in
+    private func openUrlAlertActionWithTitle(title: String, url: URL) -> UIAlertAction {
+        return self.alertActionFactory.createActionWithTitle(title, style: .default) { [weak self] (action) -> () in
             self?.urlOpener.openURL(url)
         }
     }
 
     private func cancelAlertAction() -> UIAlertAction {
-        return self.alertActionFactory.createActionWithTitle(cancel.localized, style: .Cancel, handler: nil)
+        return self.alertActionFactory.createActionWithTitle(cancel.localized, style: .cancel, handler: nil)
     }
 
 }

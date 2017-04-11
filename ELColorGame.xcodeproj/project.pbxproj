@@ -710,13 +710,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4E4BB5971BB410240043C80C /* Build configuration list for PBXNativeTarget "ELColorGame" */;
 			buildPhases = (
-				0A6578DA66C3A7B7452A2041 /* 📦 Check Pods Manifest.lock */,
+				0A6578DA66C3A7B7452A2041 /* [CP] Check Pods Manifest.lock */,
 				4E4BB56B1BB410240043C80C /* Sources */,
 				4E4BB56C1BB410240043C80C /* Frameworks */,
 				4E4BB56D1BB410240043C80C /* Resources */,
 				4E6B6E681BB59CAA0033EF7C /* Run Script - Fabric */,
-				577A654C24D050B052283139 /* 📦 Embed Pods Frameworks */,
-				192D900DB04725BE166DF483 /* 📦 Copy Pods Resources */,
+				577A654C24D050B052283139 /* [CP] Embed Pods Frameworks */,
+				192D900DB04725BE166DF483 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -731,12 +731,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4E4BB59A1BB410240043C80C /* Build configuration list for PBXNativeTarget "ELColorGameTests" */;
 			buildPhases = (
-				0035D14499C24A716A65928B /* 📦 Check Pods Manifest.lock */,
+				0035D14499C24A716A65928B /* [CP] Check Pods Manifest.lock */,
 				4E4BB57F1BB410240043C80C /* Sources */,
 				4E4BB5801BB410240043C80C /* Frameworks */,
 				4E4BB5811BB410240043C80C /* Resources */,
-				2C1A6CB37E16DBA5A177BCFD /* 📦 Embed Pods Frameworks */,
-				E2D37BA8E2B9F8BB0CB36E0D /* 📦 Copy Pods Resources */,
+				2C1A6CB37E16DBA5A177BCFD /* [CP] Embed Pods Frameworks */,
+				E2D37BA8E2B9F8BB0CB36E0D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -777,6 +777,7 @@
 				TargetAttributes = {
 					4E4BB56E1BB410240043C80C = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0830;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 1;
@@ -785,6 +786,7 @@
 					};
 					4E4BB5821BB410240043C80C = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0830;
 						TestTargetID = 4E4BB56E1BB410240043C80C;
 					};
 					4E4BB58D1BB410240043C80C = {
@@ -847,44 +849,44 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0035D14499C24A716A65928B /* 📦 Check Pods Manifest.lock */ = {
+		0035D14499C24A716A65928B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		0A6578DA66C3A7B7452A2041 /* 📦 Check Pods Manifest.lock */ = {
+		0A6578DA66C3A7B7452A2041 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		192D900DB04725BE166DF483 /* 📦 Copy Pods Resources */ = {
+		192D900DB04725BE166DF483 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -892,14 +894,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ELColorGame/Pods-ELColorGame-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2C1A6CB37E16DBA5A177BCFD /* 📦 Embed Pods Frameworks */ = {
+		2C1A6CB37E16DBA5A177BCFD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -921,14 +923,14 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" 4fb6504551d9582cf1d2a1b3cd181e74a6b932fd a548a049d3e5ca6c1cea1bec687fa3d529d6e8189235c6b20e8b0d89f5910489";
 		};
-		577A654C24D050B052283139 /* 📦 Embed Pods Frameworks */ = {
+		577A654C24D050B052283139 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -936,14 +938,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ELColorGame/Pods-ELColorGame-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E2D37BA8E2B9F8BB0CB36E0D /* 📦 Copy Pods Resources */ = {
+		E2D37BA8E2B9F8BB0CB36E0D /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1193,6 +1195,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.elpassion.ELColorGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ELColorGame/Supporting Files/ELColorGame-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1214,6 +1217,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.elpassion.ELColorGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ELColorGame/Supporting Files/ELColorGame-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -1227,6 +1231,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.elpassion.ELColorGameTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ELColorGame.app/ELColorGame";
 			};
 			name = Debug;
@@ -1240,6 +1245,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.elpassion.ELColorGameTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ELColorGame.app/ELColorGame";
 			};
 			name = Release;

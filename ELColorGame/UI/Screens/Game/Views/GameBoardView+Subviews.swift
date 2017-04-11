@@ -7,7 +7,7 @@ import UIKit
 
 extension GameBoardView {
 
-    class func createSlotViews(rows rows: Int, columns: Int) -> [GameBoardSlotView] {
+    class func createSlotViews(rows: Int, columns: Int) -> [GameBoardSlotView] {
         var views = [GameBoardSlotView]()
         for row in 0...(rows-1) {
             for column in 0...(columns-1) {
@@ -17,7 +17,7 @@ extension GameBoardView {
         return views
     }
 
-    func slotViewAtLocation(column column: Int, row: Int) -> GameBoardSlotView? {
+    func slotViewAtLocation(column: Int, row: Int) -> GameBoardSlotView? {
         return slotViews.filter { $0.column == column && $0.row == row }.first
     }
 
@@ -25,7 +25,7 @@ extension GameBoardView {
         let circleViews = slotViews.filter { $0.circleView != nil }.map { $0.circleView! }
         for circleView in circleViews {
             let frame = circleView.convertRect(circleView.bounds, toView: self)
-            if CGRectContainsPoint(frame, point) {
+            if frame.contains(point) {
                 return circleView
             }
         }
@@ -39,8 +39,8 @@ extension GameBoardView {
     func slotViewsAtRect(rect: CGRect) -> [GameBoardSlotView] {
         var array = [GameBoardSlotView]()
         for slotView in slotViews {
-            let frame = slotView.convertRect(slotView.bounds, toView: self)
-            if CGRectIntersectsRect(frame, rect) {
+            let frame = slotView.convert(slotView.bounds, to: self)
+            if frame.intersects(rect) {
                 array.append(slotView)
             }
         }

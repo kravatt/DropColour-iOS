@@ -14,7 +14,7 @@ class CircleView: SpringView {
     init(topColor: UIColor, bottomColor: UIColor) {
         self.topColor = topColor
         self.bottomColor = bottomColor
-        super.init(frame: CGRectZero)
+        super.init(frame: CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clearColor()
     }
@@ -45,7 +45,7 @@ class CircleView: SpringView {
     private func createGradientLayer(colors: [UIColor]) -> CAGradientLayer {
         let layer = CAGradientLayer()
         layer.frame = bounds
-        layer.colors = colors.map { $0.CGColor }
+        layer.colors = colors.map { $0.cgColor }
         return layer
     }
 

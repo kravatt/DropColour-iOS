@@ -8,15 +8,15 @@ import UIKit
 extension UIView {
 
     func addIncreaseSizeAnimation() {
-        configureKeyFrameAnimationWithValues([1.2], keyTimes: [1])
+        configureKeyFrameAnimationWithValues(values: [1.2], keyTimes: [1])
     }
 
     func addBounceAnimation() {
-        configureKeyFrameAnimationWithValues([0.25, 0.4, 1.3, 1.0], keyTimes: [0, 0.3, 0.75, 1], duration: 0.3)
+        configureKeyFrameAnimationWithValues(values: [0.25, 0.4, 1.3, 1.0], keyTimes: [0, 0.3, 0.75, 1], duration: 0.3)
     }
 
     func addAppearAnimation() {
-        configureKeyFrameAnimationWithValues([0.0, 0.2, 0.5, 1.4, 1.0], keyTimes: [0, 0.3, 0.5, 0.75, 1], duration: 0.4)
+        configureKeyFrameAnimationWithValues(values: [0.0, 0.2, 0.5, 1.4, 1.0], keyTimes: [0, 0.3, 0.5, 0.75, 1], duration: 0.4)
     }
 
     private func configureKeyFrameAnimationWithValues(values: [AnyObject], keyTimes: [NSNumber], duration: CFTimeInterval?=nil) {
@@ -26,10 +26,10 @@ extension UIView {
         if let duration = duration {
             keyFrame.duration = duration
         }
-        keyFrame.removedOnCompletion = false
+        keyFrame.isRemovedOnCompletion = false
         keyFrame.fillMode = kCAFillModeForwards
         keyFrame.timingFunctions = [CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut), CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)]
-        self.layer.addAnimation(keyFrame, forKey: "transform.scale")
+        self.layer.add(keyFrame, forKey: "transform.scale")
     }
 
 }

@@ -14,8 +14,8 @@ class MenuViewController: UIViewController, MenuViewDelegate {
         self.delegate = delegate
         self.tracker = tracker
         super.init(nibName: nil, bundle: nil)
-        self.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
-        self.modalPresentationStyle = UIModalPresentationStyle.Custom
+        self.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        self.modalPresentationStyle = UIModalPresentationStyle.custom
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -26,7 +26,7 @@ class MenuViewController: UIViewController, MenuViewDelegate {
         self.view = MenuView(delegate: self)
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tracker.trackScreenWithName(screenName: "MenuViewController")
     }
@@ -34,20 +34,20 @@ class MenuViewController: UIViewController, MenuViewDelegate {
     // MARK: MenuViewDelegate
 
     func menuViewDidTapResume(menuView: MenuView) {
-        self.dismissViewControllerAnimated(true) {
-            self.delegate?.menuViewControllerDidResumeGame(self)
+        self.dismiss(animated: true) {
+            self.delegate?.menuViewControllerDidResumeGame(menuViewController: self)
         }
     }
 
     func menuViewDidTapNewGame(menuView: MenuView) {
-        self.dismissViewControllerAnimated(true) {
-            self.delegate?.menuViewControllerDidTapNewGame(self)
+        self.dismiss(animated: true) {
+            self.delegate?.menuViewControllerDidTapNewGame(menuViewController: self)
         }
     }
 
     func menuViewDidTapQuit(menuView: MenuView) {
-        self.dismissViewControllerAnimated(true) {
-            self.delegate?.menuViewControllerDidTapQuit(self)
+        self.dismiss(animated: true) {
+            self.delegate?.menuViewControllerDidTapQuit(menuViewController: self)
         }
     }
 

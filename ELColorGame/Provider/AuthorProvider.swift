@@ -16,25 +16,25 @@ class AuthorProvider: AuthorProviding {
             name: "Mateusz",
             surname: "Szklarek",
             type: AuthorType.Developer,
-            avatarUrl: NSURL(string: "ms"),
-            professionUrl: NSURL(string: "https://github.com/mateuszszklarek"),
-            twitterUrl: NSURL(string: "https://twitter.com/SzklarekMateusz")
+            avatarUrl: URL(string: "ms"),
+            professionUrl: URL(string: "https://github.com/mateuszszklarek"),
+            twitterUrl: URL(string: "https://twitter.com/SzklarekMateusz")
         ),
         Author(
             name: "Dariusz",
             surname: "Rybicki",
             type: AuthorType.Developer,
-            avatarUrl: NSURL(string: "dr"),
-            professionUrl: NSURL(string: "https://github.com/darrarski"),
-            twitterUrl: NSURL(string: "https://twitter.com/darrarski")
+            avatarUrl: URL(string: "dr"),
+            professionUrl: URL(string: "https://github.com/darrarski"),
+            twitterUrl: URL(string: "https://twitter.com/darrarski")
         ),
         Author(
             name: "Dawid",
             surname: "Dapszus",
             type: AuthorType.Designer,
-            avatarUrl: NSURL(string: "dd"),
-            professionUrl: NSURL(string: "https://dribbble.com/dashoo"),
-            twitterUrl: NSURL(string: "https://twitter.com/dapszus")
+            avatarUrl: URL(string: "dd"),
+            professionUrl: URL(string: "https://dribbble.com/dashoo"),
+            twitterUrl: URL(string: "https://twitter.com/dapszus")
         )
     ]
 

@@ -7,24 +7,24 @@ import UIKit
 
 extension GameBoardView {
 
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
-        let location = touch.locationInView(self)
-        guard let circleView = circleViewAtPoint(location) else { return }
+        let location = touch.location(in: self)
+        guard let circleView = circleViewAtPoint(point: location) else { return }
         let dragger = CircleViewDragger(view: circleView, touch: touch)
         draggers.append(dragger)
         dragger.view.moveToSuperview(self)
         dragger.view.center = location
     }
 
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesMoved(touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
         guard let dragger = draggerForTouch(touch) else { return }
-        let location = touch.locationInView(self)
+        let location = touch.location(in: self)
         dragger.view.center = location
     }
 
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesEnded(touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
         guard let dragger = draggerForTouch(touch) else { return }
         draggers = draggers.filter { $0.view != dragger.view }
@@ -50,7 +50,7 @@ extension GameBoardView {
     }
 
     private func restoreCircleDraggerViewToInitialPosition(circleViewDragger: CircleViewDragger, slotSuperview: UIView, slotView: GameBoardSlotView) {
-        let targetCenter = slotSuperview.convertPoint(slotView.center, toView: self)
+        let targetCenter = slotSuperview.convert(slotView.center, to: self)
         UIView.animateWithDuration(0.2,
             animations: {
                 circleViewDragger.view.center = targetCenter

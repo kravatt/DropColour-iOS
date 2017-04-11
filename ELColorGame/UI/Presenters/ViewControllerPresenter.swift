@@ -19,11 +19,11 @@ class ViewControllerPresenter: ViewControllerPresenting {
     weak var viewController: UIViewController?
 
     func presentViewController(viewController: UIViewController) {
-        self.viewController?.presentViewController(viewController, animated: true, completion: nil)
+        self.viewController?.present(viewController, animated: true, completion: nil)
     }
 
     func dismissViewController(viewController: UIViewController) {
-        viewController.dismissViewControllerAnimated(true, completion: nil)
+        viewController.dismiss(animated: true, completion: nil)
     }
 
 }

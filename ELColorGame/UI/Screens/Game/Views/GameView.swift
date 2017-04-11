@@ -10,7 +10,7 @@ class GameView: UIView {
     weak var delegate: GameViewDelegate?
 
     init() {
-        super.init(frame: CGRectZero)
+        super.init(frame: CGRect.zero)
         backgroundColor = UIColor(color: .DarkPurple383357)
         addSubviews()
         setupLayout()
@@ -31,14 +31,14 @@ class GameView: UIView {
     func configurePauseButtonAction() {
         pauseButton.buttonActionClosure = { [weak self] in
             guard let sself = self else { return }
-            sself.delegate?.gameViewDidTapPause(sself)
+            sself.delegate?.gameViewDidTapPause(gameView: sself)
         }
     }
 
     func configureRestartButtonAction() {
         restartButton.buttonActionClosure = { [weak self] in
             guard let sself = self else { return }
-            sself.delegate?.gameViewDidTapRestart(sself)
+            sself.delegate?.gameViewDidTapRestart(gameView: self)
         }
     }
 
@@ -55,8 +55,8 @@ class GameView: UIView {
     }
 
     private let topView: UIView = {
-        let view = UIView(frame: CGRectZero)
-        view.backgroundColor = UIColor.clearColor()
+        let view = UIView(frame: CGRect.zero)
+        view.backgroundColor = UIColor.clear
         return view
     }()
 
@@ -64,13 +64,13 @@ class GameView: UIView {
     private let restartButton = Button(image: UIImage(asset: .RestartIcon))
 
     private let scoreView: UIView = {
-        let view = UIView(frame: CGRectZero)
-        view.backgroundColor = UIColor.clearColor()
+        let view = UIView(frame: CGRect.zero)
+        view.backgroundColor = UIColor.clear
         return view
     }()
 
     private let scoreTextLabel: UILabel = {
-        let label = UILabel(frame: CGRectZero)
+        let label = UILabel(frame: CGRect.zero)
         label.text = score.localized
         label.font = UIFont(name: BebasNeueBold, size: 17)
         label.textColor = UIColor(color: .LightPurple7D75C7)
@@ -78,7 +78,7 @@ class GameView: UIView {
     }()
 
     private let scoreNumberLabel: UILabel = {
-        let label = UILabel(frame: CGRectZero)
+        let label = UILabel(frame: CGRect.zero)
         label.text = "0"
         label.font = UIFont(name: BebasNeueBold, size: 46)
         label.adjustsFontSizeToFitWidth = true
@@ -88,8 +88,8 @@ class GameView: UIView {
     }()
 
     let boardContainerView: UIView = {
-        let view = UIView(frame: CGRectZero)
-        view.backgroundColor = UIColor.clearColor()
+        let view = UIView(frame: CGRect.zero)
+        view.backgroundColor = UIColor.clear
         return view
     }()
 
@@ -99,7 +99,7 @@ class GameView: UIView {
                 oldValue.removeFromSuperview()
             }
             if let boardView = boardView {
-                configureBoardView(boardView)
+                configureBoardView(boardView: boardView)
             }
         }
     }
@@ -107,43 +107,43 @@ class GameView: UIView {
     // MARK: Layout
 
     private func setupLayout() {
-        topView.snp_makeConstraints { (make) -> Void in
+        topView.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(20)
             make.left.equalTo(16)
             make.right.equalTo(-16)
             make.height.greaterThanOrEqualTo(72)
             make.height.equalTo(topView.superview!).multipliedBy(0.15).priorityLow()
         }
-        pauseButton.snp_makeConstraints { (make) -> Void in
+        pauseButton.snp.makeConstraints { (make) -> Void in
             make.left.equalTo(0)
             make.centerY.equalTo(0)
         }
-        pauseButton.setContentCompressionResistancePriority(UILayoutPriorityRequired, forAxis: .Horizontal)
-        scoreView.snp_makeConstraints { (make) -> Void in
+        pauseButton.setContentCompressionResistancePriority(UILayoutPriorityRequired, for: .horizontal)
+        scoreView.snp.makeConstraints { (make) -> Void in
             make.center.equalTo(0)
-            make.left.greaterThanOrEqualTo(pauseButton.snp_right).offset(16)
-            make.right.lessThanOrEqualTo(restartButton.snp_left).offset(-16)
+            make.left.greaterThanOrEqualTo(pauseButton.snp.right).offset(16)
+            make.right.lessThanOrEqualTo(restartButton.snp.left).offset(-16)
         }
-        scoreNumberLabel.snp_makeConstraints { (make) -> Void in
+        scoreNumberLabel.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(0)
             make.centerX.equalTo(0)
             make.left.greaterThanOrEqualTo(0)
             make.right.lessThanOrEqualTo(0)
         }
-        scoreTextLabel.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(scoreNumberLabel.snp_bottom)
+        scoreTextLabel.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(scoreNumberLabel.snp.bottom)
             make.centerX.equalTo(0)
             make.left.greaterThanOrEqualTo(0)
             make.right.lessThanOrEqualTo(0)
             make.bottom.equalTo(0)
         }
-        restartButton.snp_makeConstraints { (make) -> Void in
+        restartButton.snp.makeConstraints { (make) -> Void in
             make.right.equalTo(0)
             make.centerY.equalTo(0)
         }
-        restartButton.setContentCompressionResistancePriority(UILayoutPriorityRequired, forAxis: .Horizontal)
-        boardContainerView.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(topView.snp_bottom)
+        restartButton.setContentCompressionResistancePriority(UILayoutPriorityRequired, for: .horizontal)
+        boardContainerView.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(topView.snp.bottom)
             make.left.equalTo(16)
             make.right.equalTo(-16)
             make.bottom.equalTo(-16)
@@ -153,7 +153,7 @@ class GameView: UIView {
     private func configureBoardView(boardView: GameBoardView) {
         boardView.delegate = self
         boardContainerView.addSubview(boardView)
-        boardView.snp_makeConstraints(closure: { (make) -> Void in
+        boardView.snp.makeConstraints({ (make) -> Void in
             make.edges.equalTo(0)
         })
     }
